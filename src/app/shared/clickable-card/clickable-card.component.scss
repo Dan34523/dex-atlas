@@ -1,0 +1,41 @@
+.feature-card {
+    height: 150px;
+    width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.title {
+    transform: translateY(calc(50%)); // border-radius divided by 2
+    transition: transform 0.3s ease;
+    margin-top: 15%;
+    margin-bottom: 0;
+}
+
+.feature-card:hover .title {
+    transform: translateY(0);
+}
+
+.description {
+    opacity: 0;
+    transform: translateY(50%px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease;
+    text-wrap: wrap;
+    max-width: 90%;
+}
+
+.feature-card:hover .description {
+    opacity: 1;
+    transform: translateY(0);
+}
