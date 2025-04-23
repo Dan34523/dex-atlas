@@ -5,7 +5,7 @@ import { Feature } from '../models/feature.model';
     providedIn: 'root',
 })
 export class FeatureService {
-    readonly features: Feature[] = [
+    private readonly features: Feature[] = [
         {
             title: 'Team Planner',
             description: 'Build your ultimate Pokémon team!',
@@ -17,4 +17,8 @@ export class FeatureService {
             link: '/region-map',
         },
     ];
+
+    getFeatures(): Feature[] {
+        return this.features;
+    }
 }

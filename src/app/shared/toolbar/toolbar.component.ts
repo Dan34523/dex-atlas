@@ -15,6 +15,6 @@ import { FeatureService } from '../../core/services/feature.service';
 export class ToolbarComponent {
     features: Feature[] = [];
     constructor(private featureService: FeatureService) {
-        this.features = this.featureService.features;
+        this.features = this.featureService.getFeatures();
     }
 }
