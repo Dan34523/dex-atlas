@@ -1,4 +1,79 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@use "@angular/material" as mat;
+
+/* Header Font */
+@font-face {
+    font-family: "Big John";
+    src: url("/assets/fonts/Big-John.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Oxygen Font Variants */
+@font-face {
+    font-family: "Oxygen";
+    src: url("/assets/fonts/Oxygen.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Oxygen";
+    src: url("/assets/fonts/Oxygen-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Oxygen";
+    src: url("/assets/fonts/Oxygen-Italic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Oxygen";
+    src: url("/assets/fonts/Oxygen-BoldItalic.otf") format("opentype");
+    font-weight: 700;
+    font-style: italic;
+}
+
+// Set system-based light/dark theming
+html {
+    color-scheme: light dark;
+
+    @include mat.theme(
+        (
+            color: mat.$azure-palette,
+            typography: (
+                plain-family: "Oxygen",
+                brand-family: "Big John",
+                bold-weight: 700,
+                regular-weight: 400,
+            ),
+            density: 0,
+        )
+    );
+}
+
+@include mat.typography-hierarchy(
+    mat.define-theme(
+        (
+            typography: (
+                use-system-variables: true,
+                system-variables-prefix: mat-sys,
+            ),
+        )
+    )
+);
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+h1 {
+    font-family: "Big John", sans-serif;
+}

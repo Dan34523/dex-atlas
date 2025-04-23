@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatRippleModule } from '@angular/material/core';
 
 @Component({
     selector: 'app-clickable-card',
     standalone: true,
-    imports: [],
+    imports: [MatCardModule, MatRippleModule],
     templateUrl: './clickable-card.component.html',
     styleUrl: './clickable-card.component.scss',
 })

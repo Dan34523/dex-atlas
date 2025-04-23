@@ -1,26 +1,40 @@
 .feature-card {
-    height: 150px;
+    --card-height: 150px;
+
+    height: var(--card-height);
     width: 250px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    border-radius: 8px;
+    box-shadow: var(--mat-sys-level2);
+
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
+
+    background-color: rgba($color: #000000, $alpha: 0);
+    backdrop-filter: blur(25px);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+
+    position: relative;
+    // overflow: hidden;
 }
 
 .feature-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    cursor: pointer;
+    box-shadow: var(--mat-sys-level4);
 }
 
 .title {
-    transform: translateY(calc(50%)); // border-radius divided by 2
-    transition: transform 0.3s ease;
-    margin-top: 15%;
-    margin-bottom: 0;
+    position: relative;
+    // Move up by 50% of the remaining space (card height minus content height)
+    transform: translateY(calc((var(--card-height) / 4)));
+    // transform: translateY(75px);
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
 }
 
 .feature-card:hover .title {
@@ -29,13 +43,15 @@
 
 .description {
     opacity: 0;
-    transform: translateY(50%px);
+    transform: translateY(20px);
     transition: opacity 0.3s ease-in-out, transform 0.3s ease;
     text-wrap: wrap;
-    max-width: 90%;
 }
 
 .feature-card:hover .description {
     opacity: 1;
     transform: translateY(0);
+}
+mat-card-content {
+    padding-bottom: 0 !important;
 }
