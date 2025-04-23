@@ -24,7 +24,7 @@ export class LandingPageComponent {
     features: Feature[] = [
         {
             title: 'Team Planner',
-            description: 'Build your ultimate Pokémon team!',
+            description: 'Build your Pokémon team!',
             link: '/team-planner',
         },
         {

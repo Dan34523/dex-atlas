@@ -3,53 +3,71 @@
 
     height: var(--card-height);
     width: 250px;
-
+    padding: 16px;
     border-radius: 8px;
     box-shadow: var(--mat-sys-level2);
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-
-    background-color: rgba($color: #000000, $alpha: 0);
-    backdrop-filter: blur(25px);
-
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-
-    position: relative;
     overflow: hidden;
-}
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(35px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 
-.feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--mat-sys-level4);
+    .content-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--mat-sys-level5);
+    }
 }
 
 .title {
-    position: relative;
-    transform: translateY(calc((var(--card-height) / 6)));
-    margin-bottom: 0.5rem;
-    transition: all 0.3s ease;
-}
-
-.feature-card:hover .title {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translateY(0);
+    will-change: transform;
+    z-index: 2; // Ensure title stays above description
 }
 
 .description {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease;
-    text-wrap: wrap;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+    position: relative;
+    z-index: 1; // Ensure description stays below title
+    padding-top: 8px;
 }
 
-.feature-card:hover .description {
-    opacity: 1;
-    transform: translateY(0);
+.feature-card:hover {
+    .title {
+        transform: translateY(-20px);
+    }
+
+    .description {
+        opacity: 1;
+        // transform: translateY(0);
+        padding-top: 12px;
+    }
 }
+
 mat-card-content {
-    padding-bottom: 0 !important;
+    padding: 0 !important;
 }
