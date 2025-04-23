@@ -20,7 +20,7 @@
     cursor: pointer;
 
     position: relative;
-    // overflow: hidden;
+    overflow: hidden;
 }
 
 .feature-card:hover {
@@ -30,9 +30,7 @@
 
 .title {
     position: relative;
-    // Move up by 50% of the remaining space (card height minus content height)
-    transform: translateY(calc((var(--card-height) / 4)));
-    // transform: translateY(75px);
+    transform: translateY(calc((var(--card-height) / 6)));
     margin-bottom: 0.5rem;
     transition: all 0.3s ease;
 }

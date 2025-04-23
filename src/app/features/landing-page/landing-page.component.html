@@ -2,9 +2,12 @@
     <h1 class="header">Welcome to DexAtlas</h1>
 
     <div class="button-container">
-        <app-clickable-card></app-clickable-card>
-        <app-clickable-card></app-clickable-card>
-        <app-clickable-card></app-clickable-card>
-        <button mat-flat-button>Test</button>
+        @for (feature of features; track feature.link) {
+        <app-clickable-card
+            [title]="feature.title"
+            [description]="feature.description"
+            [link]="feature.link"
+        ></app-clickable-card>
+        }
     </div>
 </div>
