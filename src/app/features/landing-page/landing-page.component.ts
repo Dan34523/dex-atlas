@@ -3,7 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { ClickableCardComponent } from '../../shared/clickable-card/clickable-card.component';
-import { Feature } from './models/feature.model';
+import { Feature } from '../../core/models/feature.model';
 
 @Component({
     selector: 'app-landing-page',

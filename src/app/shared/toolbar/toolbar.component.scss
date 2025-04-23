@@ -1,0 +1,17 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+mat-toolbar {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.25rem;
+}
+
+button.active-link {
+    background-color: var(--mat-sys-secondary-container);
+    color: var(--mat-sys-on-secondary-container);
+}

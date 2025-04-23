@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+    <span class="logo">DexAtlas</span>
+
+    <span class="spacer"></span>
+
+    @for (f of features; track f.link) {
+    <button mat-button [routerLink]="f.link" routerLinkActive="active-link">
+        {{ f.title }}
+    </button>
+    }
+</mat-toolbar>

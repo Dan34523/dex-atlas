@@ -1,19 +1,21 @@
-import { Component, effect, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal } from '@angular/core';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 
 @Component({
     selector: 'app-root',
-    imports: [RouterOutlet],
+    imports: [RouterOutlet, ToolbarComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
 })
 export class AppComponent {
-    title = 'dex-atlas';
+    showToolbar = signal(false);
 
-    darkMode = signal(false);
-
-    applyDarkMode = effect(() => {
-        const darkMode = this.darkMode();
-        document.body.classList.toggle('darkMode', darkMode);
-    });
+    constructor(router: Router) {
+        router.events.subscribe((e) => {
+            if (e instanceof NavigationEnd) {
+                this.showToolbar.set(e.urlAfterRedirects !== '/');
+            }
+        });
+    }
 }
