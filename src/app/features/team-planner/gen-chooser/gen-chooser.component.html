@@ -1,0 +1,8 @@
+<div class="container">
+    @for (gen of generations; track gen.id) {
+    <app-clickable-card
+        [title]="gen.name | titlecase"
+        [description]="gen.main_region.name | titlecase"
+    ></app-clickable-card>
+    }
+</div>

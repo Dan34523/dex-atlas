@@ -3,9 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: -webkit-fill-available;
-    height: -moz-available;
-    height: fill-available;
+    height: 100%;
     padding: 2rem;
     gap: 2rem;
     background-color: hsla(0, 0%, 99%, 0);

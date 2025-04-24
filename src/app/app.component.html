@@ -1,4 +1,9 @@
-@if (showToolbar()) {
-<app-toolbar></app-toolbar>
-}
-<router-outlet />
+<div class="main-container">
+    @if (showToolbar()) {
+    <app-toolbar></app-toolbar>
+    }
+
+    <div class="content-wrapper">
+        <router-outlet />
+    </div>
+</div>
