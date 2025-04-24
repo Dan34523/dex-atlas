@@ -3,6 +3,7 @@
     <app-clickable-card
         [title]="gen.name | titlecase"
         [description]="gen.main_region.name | titlecase"
+        (click)="selectGen(gen)"
     />
     }
 </div>
