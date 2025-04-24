@@ -6,14 +6,13 @@ import { RouterModule } from '@angular/router';
 @Component({
     selector: 'app-clickable-card',
     standalone: true,
-    imports: [MatCardModule, MatRippleModule, RouterModule],
+    imports: [MatCardModule, MatRippleModule],
     templateUrl: './clickable-card.component.html',
     styleUrl: './clickable-card.component.scss',
 })
 export class ClickableCardComponent {
     @Input() title: string = 'Title';
     @Input() description: string = 'Description';
-    @Input() link: string = '/';
 
     hover = false;
 }
