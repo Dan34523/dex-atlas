@@ -1,11 +1,8 @@
 <mat-toolbar color="primary">
-    <a
-        class="logo"
-        routerLink="/"
-        style="text-decoration: none; color: inherit"
-    >
-        DexAtlas
-    </a>
+    <a class="logo" routerLink="/" style="text-decoration: none; color: inherit"> DexAtlas </a>
+
+    <span style="margin-left: 5rem">Selected: {{ selectedGeneration()?.name || "None" }}</span>
+    <span style="margin-left: 5rem">Gen Chosen: {{ genSelected() }}</span>
 
     <span class="spacer"></span>
 
@@ -18,10 +15,8 @@
     <button
         mat-icon-button
         (click)="toggleDark()"
-        [attr.aria-label]="
-            isDark$() ? 'Switch to light mode' : 'Switch to dark mode'
-        "
+        [attr.aria-label]="isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
     >
-        <mat-icon>{{ isDark$() ? "light_mode" : "dark_mode" }}</mat-icon>
+        <mat-icon>{{ isDark() ? "light_mode" : "dark_mode" }}</mat-icon>
     </button>
 </mat-toolbar>
