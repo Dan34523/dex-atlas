@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 export class ClickableCardComponent {
     @Input() title: string = 'Title';
     @Input() description: string = 'Description';
+    @Input() transparent: boolean = false;
 
     hover = false;
 }

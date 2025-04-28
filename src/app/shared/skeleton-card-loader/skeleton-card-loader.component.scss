@@ -3,17 +3,17 @@
     animation: shimmer 1.5s infinite linear;
     background-image: linear-gradient(
         to right,
-        var(--mat-sys-surface) 0%,
+        var(--mat-sys-surface-container-low) 0%,
         var(--mat-sys-surface-container) 20%,
-        var(--mat-sys-surface) 30%,
-        var(--mat-sys-surface) 100%
+        var(--mat-sys-surface-container-low) 30%,
+        var(--mat-sys-surface-container-low) 100%
     );
     background-size: 800px 150px;
 
     height: 150px;
     width: 250px;
     box-shadow: var(--mat-sys-level2);
-    border-radius: 16px;
+    border-radius: 8px;
 }
 
 .content-container {
