@@ -1,4 +1,4 @@
-import { Component, effect, Signal, signal } from '@angular/core';
+import { Component, effect, Signal, signal, WritableSignal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { from } from 'rxjs';
 import { CommonModule } from '@angular/common';
@@ -17,13 +17,17 @@ import { SkeletonCardLoaderComponent } from '../../../shared/skeleton-card-loade
 })
 export class GenChooserComponent {
     loading = signal(true);
-    generations: Signal<Generation[]>;
+    generations: WritableSignal<Generation[]> = signal([]);
 
     // Create an array for skeleton repeaters
-    skeletonArray = Array(9).fill(0); // Show 9 skeleton cards
+    skeletonArray = Array(6).fill(0); // Show 9 skeleton cards
 
     constructor(private poke: PokenodeService, private teamBuilder: TeamBuilderService) {
-        this.generations = toSignal(from(this.poke.getGameGenerations()), { initialValue: [] });
+        // this.generations = toSignal(from(this.poke.getGameGenerations()), { initialValue: [] });
+
+        setTimeout(() => {
+            this.generations.set(this.mockGens);
+        }, 3000);
 
         effect(() => {
             if (this.generations().length > 0) {
@@ -35,4 +39,73 @@ export class GenChooserComponent {
     selectGen(gen: Generation) {
         this.teamBuilder.setSelectedGeneration(gen);
     }
+
+    mockGens: Generation[] = [
+        {
+            id: 1,
+            name: 'Gen 1',
+            abilities: [],
+            names: [],
+            main_region: { name: 'Kanto', url: '' },
+            moves: [],
+            pokemon_species: [],
+            types: [],
+            version_groups: [],
+        },
+        {
+            id: 2,
+            name: 'Gen 2',
+            abilities: [],
+            names: [],
+            main_region: { name: 'Johto', url: '' },
+            moves: [],
+            pokemon_species: [],
+            types: [],
+            version_groups: [],
+        },
+        {
+            id: 3,
+            name: 'Gen 3',
+            abilities: [],
+            names: [],
+            main_region: { name: 'Hoenn', url: '' },
+            moves: [],
+            pokemon_species: [],
+            types: [],
+            version_groups: [],
+        },
+        {
+            id: 4,
+            name: 'Gen 4',
+            abilities: [],
+            names: [],
+            main_region: { name: 'Sinnoh', url: '' },
+            moves: [],
+            pokemon_species: [],
+            types: [],
+            version_groups: [],
+        },
+        {
+            id: 5,
+            name: 'Gen 5',
+            abilities: [],
+            names: [],
+            main_region: { name: 'Unova', url: '' },
+            moves: [],
+            pokemon_species: [],
+            types: [],
+            version_groups: [],
+        },
+        {
+            id: 6,
+            name: 'Gen 6',
+            abilities: [],
+            names: [],
+            main_region: { name: 'Kalos', url: '' },
+            moves: [],
+            pokemon_species: [],
+            types: [],
+            version_groups: [],
+        },
+    ];
 }
