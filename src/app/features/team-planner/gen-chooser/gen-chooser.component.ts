@@ -27,7 +27,7 @@ export class GenChooserComponent {
 
         effect(() => {
             if (this.generations().length > 0) {
-                this.loading.set(true);
+                this.loading.set(false);
             }
         });
     }
