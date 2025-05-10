@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { TeamComponent } from '../team/team.component';
-import { AnalysisComponent } from '../analysis/analysis.component';
+import { TeamComponent } from './team/team.component';
+import { AnalysisComponent } from './analysis/analysis.component';
 
 @Component({
     selector: 'app-team-dashboard',
