@@ -25,6 +25,7 @@ export class ThemeService {
 
     /** Determine initial mode: stored value or system preference */
     private getInitialMode(): boolean {
+        debugger;
         const stored = localStorage.getItem(this.STORAGE_KEY);
         if (stored !== null) return stored === 'true';
         return window.matchMedia('(prefers-color-scheme: dark)').matches;

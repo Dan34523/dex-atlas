@@ -3,7 +3,12 @@
 
     <div class="button-container">
         @for (feature of features; track feature.link) {
-        <app-clickable-card [title]="feature.title" [description]="feature.description" [routerLink]="feature.link" />
+        <app-clickable-card
+            [title]="feature.title"
+            [description]="feature.description"
+            [routerLink]="feature.link"
+            [transparent]="true"
+        />
         }
     </div>
 </div>
