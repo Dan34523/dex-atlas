@@ -3,8 +3,8 @@
     <app-skeleton-card-loader />
     } } @else { @for (gen of generations(); track gen.id) {
     <app-clickable-card
-        [title]="gen.name | titlecase"
-        [description]="gen.main_region.name | titlecase"
+        [title]="gen.name.replaceAll('-', ' ') | titlecase"
+        [description]="'Main Region: ' + gen.main_region.name | titlecase"
         (click)="selectGen(gen)"
     />
     } }
