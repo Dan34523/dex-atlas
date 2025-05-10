@@ -17,17 +17,13 @@ import { SkeletonCardLoaderComponent } from '../../../shared/skeleton-card-loade
 })
 export class GenChooserComponent {
     loading = signal(true);
-    generations: WritableSignal<Generation[]> = signal([]);
+    generations: Signal<Generation[]>;
 
     // Create an array for skeleton repeaters
     skeletonArray = Array(6).fill(0); // Show 9 skeleton cards
 
     constructor(private poke: PokenodeService, private teamBuilder: TeamBuilderService) {
-        // this.generations = toSignal(from(this.poke.getGameGenerations()), { initialValue: [] });
-
-        setTimeout(() => {
-            this.generations.set(this.mockGens);
-        }, 3000);
+        this.generations = toSignal(from(this.poke.getGameGenerations()), { initialValue: [] });
 
         effect(() => {
             if (this.generations().length > 0) {
